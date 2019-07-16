@@ -1,0 +1,47 @@
+﻿Build started 6/25/2019 6:25:42 PM.
+     1>Project "C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\ResizableLib\ResizableLib.vcxproj" on node 3 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file ".\Debug\ResizableLib.lastbuildstate".
+       InitializeBuildStatus:
+         Creating ".\Debug\ResizableLib.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp".\Debug\ResizableLib.pch" /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Debug\ResizableLib.pch" /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ResizableDialog.cpp ResizableFormView.cpp ResizableGrip.cpp ResizableLayout.cpp ResizableMinMax.cpp ResizablePage.cpp ResizablePageEx.cpp ResizableSheet.cpp ResizableSheetEx.cpp ResizableState.cpp
+         ResizableState.cpp
+     1>c:\caci_laptop\datagrid_demo\datagrid_demo\resizablelib\resizablestate.cpp(96): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(325) : see declaration of 'sscanf'
+         ResizableSheetEx.cpp
+         ResizableSheet.cpp
+         ResizablePageEx.cpp
+         ResizablePage.cpp
+         ResizableMinMax.cpp
+         ResizableLayout.cpp
+     1>c:\caci_laptop\datagrid_demo\datagrid_demo\resizablelib\resizablelayout.cpp(30): warning C4005: 'BS_TYPEMASK' : macro redefinition
+                 c:\program files (x86)\microsoft sdks\windows\v7.0a\include\winuser.h(9459) : see previous definition of 'BS_TYPEMASK'
+         ResizableGrip.cpp
+         ResizableFormView.cpp
+         ResizableDialog.cpp
+         Generating Code...
+       Lib:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:".\Debug\ResizableLib.lib" /NOLOGO .\Debug\ResizableDialog.obj
+         .\Debug\ResizableFormView.obj
+         .\Debug\ResizableGrip.obj
+         .\Debug\ResizableLayout.obj
+         .\Debug\ResizableMinMax.obj
+         .\Debug\ResizablePage.obj
+         .\Debug\ResizablePageEx.obj
+         .\Debug\ResizableSheet.obj
+         .\Debug\ResizableSheetEx.obj
+         .\Debug\ResizableState.obj
+         .\Debug\StdAfx.obj
+         ResizableLib.vcxproj -> C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\ResizableLib\.\Debug\ResizableLib.lib
+       FinalizeBuildStatus:
+         Deleting file ".\Debug\ResizableLib.unsuccessfulbuild".
+         Touching ".\Debug\ResizableLib.lastbuildstate".
+     1>Done Building Project "C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\ResizableLib\ResizableLib.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:11.40

@@ -1,0 +1,342 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian (Russia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\DataGrid_Demo.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Russian (Russia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\DataGrid_Demo.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIAL_EDIT DIALOGEX 0, 0, 389, 166
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_ED_PROD,4,15,88,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_QTY,99,15,88,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_PRICE,4,49,110,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ED_UNITS,277,51,25,13,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_ED_DISCONT,287,13,92,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Save",IDC_BTN_SAVE,134,143,57,21
+    PUSHBUTTON      "Cancel",IDCANCEL,227,143,57,21
+    COMBOBOX        IDC_CMB_CAT,312,59,16,117,CBS_DROPDOWNLIST | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CMB_SUP,10,82,207,83,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Suppliers",IDC_STATIC,362,58,16,10,NOT WS_VISIBLE
+    CTEXT           "Categories",IDC_STATIC,335,57,16,10,NOT WS_VISIBLE
+    CTEXT           "Last Name",IDC_STATIC,3,2,82,10
+    CTEXT           "First Name",IDC_STATIC,107,4,66,10
+    CTEXT           "Email",IDC_STATIC,7,37,29,10
+    CTEXT           "Gender",IDC_STATIC,188,3,32,10
+    CTEXT           "Job Title",IDC_STATIC,287,2,51,10
+    EDITTEXT        IDC_EMPID,332,37,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_PHONE,129,49,112,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ADDRESS,10,104,240,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CITY,254,104,58,14,ES_AUTOHSCROLL
+    LTEXT           "Company ",IDC_STATIC,14,146,40,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_STATE,316,104,63,14,ES_AUTOHSCROLL
+    LTEXT           "Phone",IDC_STATIC,132,35,41,8
+    EDITTEXT        IDC_COMPANYNAME,292,141,37,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    CONTROL         "Male",IDC_MALE,"Button",BS_AUTORADIOBUTTON,192,16,36,10
+    CONTROL         "Female",IDC_FEMALE,"Button",BS_AUTORADIOBUTTON,234,16,36,10
+    COMBOBOX        IDC_COMBOCOMPANY,74,143,22,83,CBS_DROPDOWN | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Company",IDC_STATIC,4,68,378,64
+    EDITTEXT        IDC_ED_ID,211,32,22,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 242, 122
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About DataGrid Demo"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,13,5,20,20
+    LTEXT           "DataGrid Demo Version 1.0",IDC_STATIC,51,4,92,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2001-2002",IDC_STATIC,51,18,95,8,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "OK",IDOK,164,6,62,14,WS_GROUP
+    LTEXT           "I would like to thank the following people for their classes used in this application.",IDC_STATIC,4,47,221,17,NOT WS_VISIBLE
+    LTEXT           "chris@codeproject.com",IDC_MAIL1,57,67,78,10,NOT WS_VISIBLE
+    LTEXT           "Chris Mounder",IDC_NAME1,3,67,51,10,NOT WS_VISIBLE
+    LTEXT           "cpanov@yahoo.com",IDC_MAIL0,57,32,65,10,NOT WS_VISIBLE
+    LTEXT           "Kirill Panov",IDC_NAME0,4,32,51,10,NOT WS_VISIBLE
+    LTEXT           "www.geocities.com/cpanov",IDC_WWW0,138,32,94,10,NOT WS_VISIBLE
+    LTEXT           "www.codeproject.com",IDC_WWW1,141,67,94,10,NOT WS_VISIBLE
+    LTEXT           "ppescher@yahoo.com",IDC_MAIL2,57,79,78,10,NOT WS_VISIBLE
+    LTEXT           "Paolo Messina",IDC_NAME2,3,79,51,10,NOT WS_VISIBLE
+    LTEXT           "www.geocities.com/ppescher",IDC_WWW2,141,79,94,10,NOT WS_VISIBLE
+    LTEXT           "davide_calabro@yahoo.com",IDC_MAIL3,81,91,94,10,NOT WS_VISIBLE
+    LTEXT           "Davide Calabro",IDC_NAME3,27,91,51,10,NOT WS_VISIBLE
+    LTEXT           "http://members.tripod.com/~SoftechSoftware/index.html",IDC_WWW3,7,103,233,10,NOT WS_VISIBLE
+END
+
+IDD_DATAGRID_DEMO_DIALOG DIALOGEX 0, 0, 792, 437
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "DataGrid Demo"
+MENU IDR_MENU
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Custom1",IDC_GRID,"MFCGridCtrl",WS_TABSTOP,10,0,781,383
+    PUSHBUTTON      "Edit",IDC_BTN_EDIT,24,395,71,23
+    PUSHBUTTON      "Add",IDC_BTN_AD,108,395,71,23
+    PUSHBUTTON      "Copy",IDC_BTN_COPY,291,394,25,15,NOT WS_VISIBLE
+    PUSHBUTTON      "Delete",IDC_BTN_DEL,191,395,71,23
+    COMBOBOX        IDC_CMB_CAT,333,400,19,117,CBS_DROPDOWNLIST | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CMB_SUP,369,402,19,265,CBS_DROPDOWNLIST | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,758,387,22,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,755,404,25,14,NOT WS_VISIBLE | NOT WS_TABSTOP
+    CTEXT           "Suppliers",IDC_STATIC,367,390,19,10,NOT WS_VISIBLE
+    CTEXT           "Categories",IDC_STATIC,331,387,19,10,NOT WS_VISIBLE
+    PUSHBUTTON      "Up",IDC_BTN_UP,480,395,46,16
+    PUSHBUTTON      "Down",IDC_BTN_DOWN,535,395,46,16
+    PUSHBUTTON      "PageUp",IDC_BTN_PAGEUP,590,395,46,16
+    PUSHBUTTON      "PageDown",IDC_BTN_PAGEDOWN,645,395,46,16
+END
+
+IDD_DIAL_FIND DIALOG 0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Find"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,38,81,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,93,81,50,14
+    EDITTEXT        IDC_FIND,12,9,160,12,ES_AUTOHSCROLL
+    LTEXT           "Field",IDC_STATIC,11,32,99,10
+    COMBOBOX        IDC_COMBO_FIND,12,45,160,119,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "FileDescription", "DataGrid_Demo MFC Application"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "DataGrid_Demo"
+            VALUE "LegalCopyright", "Copyright (C) 2002"
+            VALUE "OriginalFilename", "DataGrid_Demo.EXE"
+            VALUE "ProductName", "DataGrid_Demo Application"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIAL_EDIT, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 164
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+    END
+
+    IDD_DATAGRID_DEMO_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 791
+        BOTTOMMARGIN, 313
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_COPY                BITMAP                  "res\\copy.bmp"
+IDB_DEL                 BITMAP                  "res\\del.bmp"
+IDB_EDIT                BITMAP                  "res\\edit.bmp"
+IDB_ADD                 BITMAP                  "res\\add.bmp"
+IDB_SAVE                BITMAP                  "res\\save.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Print...\tCtrl+P",           IDC_PRINT_BUTTON
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "Select All\tCtrl-A",          ID_EDIT_SELECTALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Find\tCtrl+F",               ID_EDIT_FIND
+    END
+    MENUITEM "&Options",                    65535
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About DataGrid Demo...",     ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DIAL_EDIT DLGINIT
+BEGIN
+    IDC_COMBOCOMPANY, 0x403, 8, 0
+0x654d, 0x6d65, 0x6562, 0x0065, 
+    IDC_COMBOCOMPANY, 0x403, 7, 0
+0x6f52, 0x646f, 0x6c65, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About DataGrid_Demo..."
+    IDS_GRID_NO_SEL_REC     "The record is not selected"
+    IDS_GRID_DEL            "Delete"
+    IDS_GRID_READ           "Grid read the data..."
+    IDS_GRID_NO_SEL_DESC    "Please,select the record "
+    IDS_GRID_DEL_QUESTION   "Are you sure you want to delete?"
+    IDS_GRID_FIND_WARN      "The record not found"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\DataGrid_Demo.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
