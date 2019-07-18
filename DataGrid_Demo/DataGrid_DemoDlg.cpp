@@ -1,5 +1,6 @@
 // DataGrid_DemoDlg.cpp : implementation file
 //
+// Chris Leung - BAH July 2019
 
 #include "stdafx.h"
 #include "DataGrid_Demo.h"
@@ -11,7 +12,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-#include "HyperLink.h"
+//#include "HyperLink.h"
 /////////////////////////////////////////////////////////////////////////////
 // CAboutDlg dialog used for App About
 
@@ -20,8 +21,8 @@ class CAboutDlg : public CResizableDialog
 public:
   CAboutDlg();
 
-  CHyperLink	m_eMail0,m_eMail1,m_eMail2,m_eMail3;
-	CHyperLink	m_wLink0,m_wLink1,m_wLink2,m_wLink3;
+ // CHyperLink	m_eMail0,m_eMail1,m_eMail2,m_eMail3;
+	//CHyperLink	m_wLink0,m_wLink1,m_wLink2,m_wLink3;
 
 // Dialog Data
   //{{AFX_DATA(CAboutDlg)
@@ -53,15 +54,15 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
   CResizableDialog::DoDataExchange(pDX);
   //{{AFX_DATA_MAP(CAboutDlg)
   //}}AFX_DATA_MAP
-  DDX_Control(pDX, IDC_MAIL0, m_eMail0);
-  DDX_Control(pDX, IDC_MAIL1, m_eMail1);
-  DDX_Control(pDX, IDC_MAIL2, m_eMail2);
-  DDX_Control(pDX, IDC_MAIL3, m_eMail3);
+  //DDX_Control(pDX, IDC_MAIL0, m_eMail0);
+  //DDX_Control(pDX, IDC_MAIL1, m_eMail1);
+  //DDX_Control(pDX, IDC_MAIL2, m_eMail2);
+  //DDX_Control(pDX, IDC_MAIL3, m_eMail3);
 
-  DDX_Control(pDX, IDC_WWW0,  m_wLink0);
-  DDX_Control(pDX, IDC_WWW1,  m_wLink1);
-  DDX_Control(pDX, IDC_WWW2,  m_wLink2);
-  DDX_Control(pDX, IDC_WWW3,  m_wLink3);
+  //DDX_Control(pDX, IDC_WWW0,  m_wLink0);
+  //DDX_Control(pDX, IDC_WWW1,  m_wLink1);
+  //DDX_Control(pDX, IDC_WWW2,  m_wLink2);
+  //DDX_Control(pDX, IDC_WWW3,  m_wLink3);
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CResizableDialog)
@@ -90,8 +91,8 @@ void CDataGrid_DemoDlg::DoDataExchange(CDataExchange* pDX)
   //}}AFX_DATA_MAP
   DDX_Control(pDX, IDC_GRID, m_Grid);             // associate the grid window with a C++ object
 
-  DDX_Control(pDX, IDC_CMB_CAT, m_cmbCat);
-//  DDX_Control(pDX, IDC_CMB_SUP, m_cmbSup);
+  DDX_Control(pDX, IDC_CMB_CAT, m_cmbEmp);
+//  DDX_Control(pDX, IDC_CMB_SUP, m_cmbCompany);
 }
 
 BEGIN_MESSAGE_MAP(CDataGrid_DemoDlg, CResizableDialog)
@@ -114,10 +115,47 @@ BEGIN_MESSAGE_MAP(CDataGrid_DemoDlg, CResizableDialog)
 	ON_BN_CLICKED(IDC_BTN_PAGEDOWN, &CDataGrid_DemoDlg::OnBtnPagedown)
 	ON_BN_CLICKED(IDC_BTN_PAGEUP, &CDataGrid_DemoDlg::OnBtnPageup)
 	ON_BN_CLICKED(IDC_BTN_UP, &CDataGrid_DemoDlg::OnBtnUp)
+    ON_MESSAGE(NM_DBLCLK, OnGridCtrlDBClick)
 END_MESSAGE_MAP()
+extern void ProcessMsgs();
 
 /////////////////////////////////////////////////////////////////////////////
 // CDataGrid_DemoDlg message handlers
+
+/**********************************************************************
+*	Function:	ProcessMsgs
+*
+*	Created:	11/24/1998 CKL
+*
+*	Purpose:	This works by getting all messages for our process, then
+*				discarding those that don't belong to the specified window
+*				or its descendants.
+*
+*	Returns:	void
+***********************************************************************/
+void ProcessMsgs()
+{
+
+	MSG         Msg;
+	DWORD       FinalTime = GetTickCount();
+	DWORD		CurTime=0;
+	CString str;
+
+	/*
+	** This works by getting all messages for our process, then
+	** discarding those that don't belong to the specified window
+	** or its descendants.
+	*/
+
+	while (::PeekMessage(&Msg, NULL, 0, 0, PM_NOREMOVE|PM_NOYIELD) && CurTime < FinalTime)
+	{
+		::GetMessage(&Msg,NULL,0,0);  // this can yield!
+		CurTime = ::GetMessageTime();
+		::TranslateMessage(&Msg);
+		::DispatchMessage(&Msg);
+	}
+	return;
+}
 
 BOOL CDataGrid_DemoDlg::OnInitDialog()
 {
@@ -215,19 +253,19 @@ BOOL CDataGrid_DemoDlg::OnInitDialog()
     //HRESULT hr = m_pConnection->Open(L"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\CACI_Laptop\\Data\\download\\Nwind.mdb", L"", L"", -1);
 	if(SUCCEEDED(hr))
 	{	
-//		m_cmbCat.m_bAddPosition=m_cmbSup.m_bAddPosition=true;
-		m_cmbCat.m_bAddPosition=true;
-//		m_cmbCat.Execute(m_pConnection,_T("SELECT emp_id FROM employee order by emp_id"),_T("emp_id"));
-//		m_cmbSup.Execute(m_pConnection,_T("SELECT * FROM company ORDER BY company_name"),_T("company_name"));
+//		m_cmbEmp.m_bAddPosition=m_cmbCompany.m_bAddPosition=true;
+		m_cmbEmp.m_bAddPosition=true;
+//		m_cmbEmp.Execute(m_pConnection,_T("SELECT emp_id FROM employee order by emp_id"),_T("emp_id"));
+//		m_cmbCompany.Execute(m_pConnection,_T("SELECT * FROM company ORDER BY company_name"),_T("company_name"));
 
 		// set the default next emp id for employee table
 		m_nNextEmpID = 0;
-//		m_nNextEmpID = m_cmbCat.GetCount();
+//		m_nNextEmpID = m_cmbEmp.GetCount();
 //		m_CatArray.Fill(m_pConnection,_T("SELECT emp_id FROM employee ORDER BY emp_id"),_T("emp_id"),_T("emp_id"));//m_CatArray
 		m_SupArray.Fill(m_pConnection,_T("SELECT * FROM company ORDER BY company_name"),_T("company_name"),_T("ID"));
 
-    //m_cmbCat.Execute(m_pConnection,_T("SELECT * FROM Categories ORDER BY CategoryName"),_T("CategoryName"));
-    //m_cmbSup.Execute(m_pConnection,_T("SELECT * FROM Suppliers ORDER BY CompanyName"),_T("CompanyName"));
+    //m_cmbEmp.Execute(m_pConnection,_T("SELECT * FROM Categories ORDER BY CategoryName"),_T("CategoryName"));
+    //m_cmbCompany.Execute(m_pConnection,_T("SELECT * FROM Suppliers ORDER BY CompanyName"),_T("CompanyName"));
 
     //m_CatArray.Fill(m_pConnection,_T("SELECT * FROM Categories ORDER BY CategoryName"),_T("CategoryName"),_T("CategoryID"));
     //m_SupArray.Fill(m_pConnection,_T("SELECT * FROM Suppliers ORDER BY CompanyName"),_T("CompanyName"),_T("SupplierID"));
@@ -280,6 +318,7 @@ void CDataGrid_DemoDlg::OnPaint()
   {
     CResizableDialog::OnPaint();
   }
+//  ProcessMsgs();//ckl fixed painting issue
 }
 
 // The system calls this to obtain the cursor to display while the user drags
@@ -407,6 +446,16 @@ BOOL CDataGrid_DemoDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
   {
     *pResult = 1;
     GV_DISPINFO *pDispInfo = (GV_DISPINFO*)lParam;
+
+	// ckl capture grid double click message
+	if (pDispInfo->hdr.code == NM_DBLCLK)
+	{
+//		CWnd *pOwner = m_Grid.GetOwner();
+//		if (pOwner && IsWindow(pOwner->m_hWnd))
+		
+		OnBtnEdit();
+		return SendMessage(NM_DBLCLK, wParam, lParam);
+	}
     m_Grid.SetValue(pDispInfo);
   }
 
@@ -427,26 +476,26 @@ void CDataGrid_DemoDlg::OnSelchangeCmbSup()
 
 void CDataGrid_DemoDlg::Requery()
 {
-  CString strCat,strSup,strWhere;
+  CString strEmp,strComp,strWhere;
 
-  if (!m_cmbCat.IsAddPosition())
+  if (!m_cmbEmp.IsAddPosition())
   {
-    m_strCatId=m_cmbCat.m_pSet->GetCollect(L"id");
-    strCat=_T(" ID=")+m_strCatId;
+    m_strEmpId=m_cmbEmp.m_pSet->GetCollect(L"id");
+    strEmp=_T(" ID=")+m_strEmpId;
   }
 
-  //if (!m_cmbSup.IsAddPosition())
+  //if (!m_cmbCompany.IsAddPosition())
   //{
-  //  m_strSupId=m_cmbSup.m_pSet->GetCollect(L"ID");
-  //  strSup=" ID="+m_strSupId;
+  //  m_strCompanyId=m_cmbCompany.m_pSet->GetCollect(L"ID");
+  //  strComp=" ID="+m_strCompanyId;
   //}
 
-  strWhere=strCat;
+  strWhere=strEmp;
 
-  if( ( strSup.GetLength()*strWhere.GetLength() ) ==0 )
-    strWhere+=strSup;
+  if( ( strComp.GetLength()*strWhere.GetLength() ) ==0 )
+    strWhere+=strComp;
   else
-    strWhere+=" AND "+strSup;
+    strWhere+=" AND "+strComp;
 
   strWhere = " employee.companyid = company.ID ";
   m_Grid.Execute(m_pConnection,_T("ID")/*Primary key field */
@@ -471,17 +520,17 @@ void CDataGrid_DemoDlg::OnBtnEdit()
 
   dlg.m_pSet=m_Grid.m_pSet;
 
-  dlg.m_catId=m_Grid.m_pSet->GetCollect(L"emp_ID") ;
-  dlg.m_supId=m_Grid.m_pSet->GetCollect(L"companyID") ;
-  dlg.m_cmbCat.Attach(&m_CatArray,dlg.m_catId);
-  dlg.m_cmbSup.Attach(&m_SupArray,dlg.m_supId);
+  dlg.m_empId=m_Grid.m_pSet->GetCollect(L"emp_ID") ;
+  dlg.m_compId=m_Grid.m_pSet->GetCollect(L"companyID") ;
+  dlg.m_cmbEmp.Attach(&m_CatArray,dlg.m_empId);
+  dlg.m_cmbCompany.Attach(&m_SupArray,dlg.m_compId);
 
   dlg.m_operation=CDialEdit::EDIT;
 
   if (dlg.DoModal() == IDOK)
   {
-    if( ((dlg.m_catChange)&&(!m_cmbCat.IsAddPosition())))
-//        || ( (dlg.m_supChange)&&(!m_cmbSup.IsAddPosition()) ) )
+    if( ((dlg.m_catChange)&&(!m_cmbEmp.IsAddPosition())))
+//        || ( (dlg.m_supChange)&&(!m_cmbCompany.IsAddPosition()) ) )
     {
       if(nRow==1)
       {
@@ -511,11 +560,11 @@ void CDataGrid_DemoDlg::OnBtnAd()
 	m_nNextEmpID =	dlg.m_pSet->GetRecordCount() +1;
   dlg.m_NextEmpID.Format(_T("%d"),m_nNextEmpID);
   
-//  dlg.m_catId=m_Grid.m_pSet->GetCollect(L"ID") ;
-  dlg.m_supId=30;//m_Grid.m_pSet->GetCollect(L"companyID") ;
+//  dlg.m_empId=m_Grid.m_pSet->GetCollect(L"ID") ;
+  dlg.m_compId=30;//m_Grid.m_pSet->GetCollect(L"companyID") ;
 
-//  dlg.m_cmbCat.Attach(&m_CatArray,dlg.m_catId);
-  dlg.m_cmbSup.Attach(&m_SupArray,dlg.m_supId);
+//  dlg.m_cmbEmp.Attach(&m_CatArray,dlg.m_empId);
+  dlg.m_cmbCompany.Attach(&m_SupArray,dlg.m_compId);
 
   dlg.m_operation=CDialEdit::NEW;
 
@@ -538,11 +587,11 @@ void CDataGrid_DemoDlg::OnBtnCopy()
 
   dlg.m_operation=CDialEdit::COPY;
 
-  dlg.m_catId=m_Grid.m_pSet->GetCollect(L"ID") ;
-//  dlg.m_supId=m_Grid.m_pSet->GetCollect(L"ID") ;
+  dlg.m_empId=m_Grid.m_pSet->GetCollect(L"ID") ;
+//  dlg.m_compId=m_Grid.m_pSet->GetCollect(L"ID") ;
 
-  dlg.m_cmbCat.Attach(&m_CatArray,dlg.m_catId);
-//  dlg.m_cmbSup.Attach(&m_SupArray,dlg.m_supId);
+  dlg.m_cmbEmp.Attach(&m_CatArray,dlg.m_empId);
+//  dlg.m_cmbCompany.Attach(&m_SupArray,dlg.m_compId);
 
   if (dlg.DoModal() == IDOK)
   {
@@ -592,49 +641,49 @@ BOOL CAboutDlg::OnInitDialog()
 	CResizableDialog::OnInitDialog();
 	
 	// TODO: Add extra initialization here
-  CString s;
-  CWnd *pWnd;
+  //CString s;
+  //CWnd *pWnd;
 
-  pWnd=GetDlgItem(  IDC_MAIL0 ); 
-  pWnd->GetWindowText(s);
-  m_eMail0.SetURL(_T("mailto:")+s);
-  m_eMail0.SetUnderline(CHyperLink::ulAlways);
+  //pWnd=GetDlgItem(  IDC_MAIL0 ); 
+  //pWnd->GetWindowText(s);
+  //m_eMail0.SetURL(_T("mailto:")+s);
+  //m_eMail0.SetUnderline(CHyperLink::ulAlways);
 
-  pWnd=GetDlgItem(  IDC_MAIL1 ); 
-  pWnd->GetWindowText(s);
-  m_eMail1.SetURL(_T("mailto:")+s);
-  m_eMail1.SetUnderline(CHyperLink::ulAlways);
-  
-  pWnd=GetDlgItem(  IDC_MAIL2 ); 
-  pWnd->GetWindowText(s);
-  m_eMail2.SetURL(_T("mailto:")+s);
-  m_eMail2.SetUnderline(CHyperLink::ulAlways);
+  //pWnd=GetDlgItem(  IDC_MAIL1 ); 
+  //pWnd->GetWindowText(s);
+  //m_eMail1.SetURL(_T("mailto:")+s);
+  //m_eMail1.SetUnderline(CHyperLink::ulAlways);
+  //
+  //pWnd=GetDlgItem(  IDC_MAIL2 ); 
+  //pWnd->GetWindowText(s);
+  //m_eMail2.SetURL(_T("mailto:")+s);
+  //m_eMail2.SetUnderline(CHyperLink::ulAlways);
 
-  pWnd=GetDlgItem(  IDC_MAIL3 ); 
-  pWnd->GetWindowText(s);
-  m_eMail3.SetURL(_T("mailto:")+s);
-  m_eMail3.SetUnderline(CHyperLink::ulAlways);
-  
+  //pWnd=GetDlgItem(  IDC_MAIL3 ); 
+  //pWnd->GetWindowText(s);
+  //m_eMail3.SetURL(_T("mailto:")+s);
+  //m_eMail3.SetUnderline(CHyperLink::ulAlways);
+  //
 
-  pWnd=GetDlgItem(  IDC_WWW0 ); 
-  pWnd->GetWindowText(s);
-  m_wLink0.SetURL(s);
-  m_wLink0.SetUnderline(CHyperLink::ulAlways);
-  
-  pWnd=GetDlgItem(  IDC_WWW1 ); 
-  pWnd->GetWindowText(s);
-  m_wLink1.SetURL(s);
-  m_wLink1.SetUnderline(CHyperLink::ulAlways);
+  //pWnd=GetDlgItem(  IDC_WWW0 ); 
+  //pWnd->GetWindowText(s);
+  //m_wLink0.SetURL(s);
+  //m_wLink0.SetUnderline(CHyperLink::ulAlways);
+  //
+  //pWnd=GetDlgItem(  IDC_WWW1 ); 
+  //pWnd->GetWindowText(s);
+  //m_wLink1.SetURL(s);
+  //m_wLink1.SetUnderline(CHyperLink::ulAlways);
 
-  pWnd=GetDlgItem(  IDC_WWW2 ); 
-  pWnd->GetWindowText(s);
-  m_wLink2.SetURL(s);
-  m_wLink2.SetUnderline(CHyperLink::ulAlways);
+  //pWnd=GetDlgItem(  IDC_WWW2 ); 
+  //pWnd->GetWindowText(s);
+  //m_wLink2.SetURL(s);
+  //m_wLink2.SetUnderline(CHyperLink::ulAlways);
 
-  pWnd=GetDlgItem(  IDC_WWW3 ); 
-  pWnd->GetWindowText(s);
-  m_wLink3.SetURL(s);
-  m_wLink3.SetUnderline(CHyperLink::ulAlways);
+  //pWnd=GetDlgItem(  IDC_WWW3 ); 
+  //pWnd->GetWindowText(s);
+  //m_wLink3.SetURL(s);
+  //m_wLink3.SetUnderline(CHyperLink::ulAlways);
   
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
@@ -666,4 +715,11 @@ void CDataGrid_DemoDlg::OnBtnUp()
 {
 	// TODO: Add your control notification handler code here
 	m_Grid.PostMessage(WM_KEYDOWN,VK_UP,0); //up arrow key is press
+}
+
+
+afx_msg LRESULT CDataGrid_DemoDlg::OnGridCtrlDBClick(WPARAM wParam, LPARAM lParam)
+{
+	AfxMessageBox(_T("OnGridCtrlDBClick"));
+	return 0;
 }

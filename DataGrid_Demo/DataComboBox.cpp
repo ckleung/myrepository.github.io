@@ -1,11 +1,6 @@
 // DataComboBox.cpp: implementation of the CDataComboBox class.
 //
 // CDataComboBox class for access to database from ComboBox
-// Copyright (c) 2000-2002. All Rights Reserved.
-//
-// This file is provided "as is" with no expressed or implied warranty.
-// The author accepts no liability for any damage/loss of business that
-// this product may cause.
 //
 //////////////////////////////////////////////////////////////////////
 

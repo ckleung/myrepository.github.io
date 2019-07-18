@@ -38,10 +38,10 @@ public:
   void SetFields();
   CDataGrid_DemoDlg(CWnd* pParent = NULL);  // standard constructor
 
-  CDataComboBox m_cmbCat;
-//  CDataComboBox m_cmbSup;
+  CDataComboBox m_cmbEmp;
+//  CDataComboBox m_cmbCompany;
 
-  CExString m_strCatId,m_strSupId;
+  CExString m_strEmpId,m_strCompanyId;
   int m_nNextEmpID;
 
   CButtonST m_btnEdit,m_btnDel,m_btnCopy,m_btnAdd, m_btnUp,m_btnDown,m_btnPageup,m_btnPagedown;
@@ -57,6 +57,9 @@ public:
   protected:
   virtual void DoDataExchange(CDataExchange* pDX);  // DDX/DDV support
   virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult);
+    // inside the class declaration
+	afx_msg LRESULT OnGridCtrlDBClick(WPARAM wParam, LPARAM lParam);
+
   //}}AFX_VIRTUAL
 
 // Implementation

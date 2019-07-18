@@ -85,7 +85,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <SubSystem>Windows</SubSystem>
       <OutputFile>.\Release\DataGrid_Demo.exe</OutputFile>
-      <AdditionalDependencies>C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\ResizableLib\Release\ResizableLib.lib</AdditionalDependencies>
+      <AdditionalDependencies>ResizableLib\Release\ResizableLib.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -127,7 +127,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OutputFile>.\Debug\DataGrid_Demo.exe</OutputFile>
-      <AdditionalDependencies>C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\ResizableLib\Debug\ResizableLib.lib</AdditionalDependencies>
+      <AdditionalDependencies>ResizableLib\Debug\ResizableLib.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

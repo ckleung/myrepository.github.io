@@ -1,5 +1,6 @@
 // DataGrid_Demo.cpp : Defines the class behaviors for the application.
 //
+// Chris Leung - BAH July 2019
 
 #include "stdafx.h"
 #include "DataGrid_Demo.h"

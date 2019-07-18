@@ -1,22 +1,63 @@
-﻿Build started 7/16/2019 1:17:18 PM.
-     1>Project "C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\DataGrid_Demo.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 7/18/2019 9:52:31 AM.
+     1>Project "C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\DataGrid_Demo.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file ".\Release\DataGrid_Demo.lastbuildstate".
+       InitializeBuildStatus:
          Creating ".\Release\DataGrid_Demo.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp".\Release\DataGrid_Demo.pch" /Fo".\Release\\" /Fd".\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /D _AFXDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Release\DataGrid_Demo.pch" /Fo".\Release\\" /Fd".\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DataComboBox.cpp DataGrid.cpp DDXFields.cpp ExString.cpp GridCtrl_src\GridCell.cpp GridCtrl_src\GridCellBase.cpp GridCtrl_src\GridCtrl.cpp GridCtrl_src\GridDropTarget.cpp GridCtrl_src\InPlaceEdit.cpp GridCtrl_src\TitleTip.cpp BtnST.cpp DataGrid_Demo.cpp DataGrid_DemoDlg.cpp DialEdit.cpp DialFind.cpp HyperLink.cpp
+         DataComboBox.cpp
+         DataGrid.cpp
+     1>DataGrid.cpp(202): warning C4101: 'e' : unreferenced local variable
+         DDXFields.cpp
+         ExString.cpp
+         GridCell.cpp
+         GridCellBase.cpp
+         GridCtrl.cpp
+         GridDropTarget.cpp
+         InPlaceEdit.cpp
+         TitleTip.cpp
+         BtnST.cpp
+         DataGrid_Demo.cpp
+     1>DataGrid_Demo.cpp(53): warning C4996: 'CWinApp::Enable3dControls': CWinApp::Enable3dControls is no longer needed. You should remove this call.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\atlmfc\include\afxwin.h(5344) : see declaration of 'CWinApp::Enable3dControls'
+         DataGrid_DemoDlg.cpp
+         DialEdit.cpp
+         DialFind.cpp
+         HyperLink.cpp
+         Generating Code...
        ResourceCompile:
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D _VC80_UPGRADE=0x0600 /D _AFXDLL /l"0x0419" /nologo /fo".\Release\DataGrid_Demo.res" DataGrid_Demo.rc 
        Link:
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Release\DataGrid_Demo.exe" /INCREMENTAL:NO /NOLOGO ResizableLib\Release\ResizableLib.lib /MANIFEST /ManifestFile:".\Release\DataGrid_Demo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\Release\DataGrid_Demo.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Release\DataGrid_Demo.lib" /MACHINE:X86 .\Release\DataGrid_Demo.res
+         .\Release\DataComboBox.obj
+         .\Release\DataGrid.obj
+         .\Release\DDXFields.obj
+         .\Release\ExString.obj
+         .\Release\GridCell.obj
+         .\Release\GridCellBase.obj
+         .\Release\GridCtrl.obj
+         .\Release\GridDropTarget.obj
+         .\Release\InPlaceEdit.obj
+         .\Release\TitleTip.obj
+         .\Release\BtnST.obj
+         .\Release\DataGrid_Demo.obj
+         .\Release\DataGrid_DemoDlg.obj
+         .\Release\DialEdit.obj
+         .\Release\DialFind.obj
+         .\Release\HyperLink.obj
+         .\Release\StdAfx.obj
          DataGrid_Demo.vcxproj -> C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\.\Release\DataGrid_Demo.exe
        Manifest:
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:".\Release\DataGrid_Demo.exe;#1" /manifest .\Release\DataGrid_Demo.exe.intermediate.manifest "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
        FinalizeBuildStatus:
          Deleting file ".\Release\DataGrid_Demo.unsuccessfulbuild".
          Touching ".\Release\DataGrid_Demo.lastbuildstate".
-     1>Done Building Project "C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\DataGrid_Demo.vcxproj" (build target(s)).
+     1>Done Building Project "C:\CACI_Laptop\DataGrid_demo\DataGrid_Demo\DataGrid_Demo.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.10
+Time Elapsed 00:00:06.27

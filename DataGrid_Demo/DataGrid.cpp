@@ -2,10 +2,6 @@
 //
 // CDataGrid - the Grid class for access to database
 //
-// This file is provided "as is" with no expressed or implied warranty.
-// The author accepts no liability for any damage/loss of business that
-// this product may cause.
-//
 //////////////////////////////////////////////////////////////////////
 
 

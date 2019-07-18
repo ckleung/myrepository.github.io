@@ -1,5 +1,6 @@
 // DialEdit.cpp : implementation file
 //
+// Chris Leung - BAH July 2019
 
 #include "stdafx.h"
 #include "DataGrid_Demo.h"
@@ -34,8 +35,8 @@ void CDialEdit::DoDataExchange(CDataExchange* pDX)
   //{{AFX_DATA_MAP(CDialEdit)
     // NOTE: the ClassWizard will add DDX and DDV calls here
   //}}AFX_DATA_MAP
-  DDX_Control(pDX, IDC_CMB_CAT, m_cmbCat);
-  DDX_Control(pDX, IDC_CMB_SUP, m_cmbSup);
+  DDX_Control(pDX, IDC_CMB_CAT, m_cmbEmp);
+  DDX_Control(pDX, IDC_CMB_SUP, m_cmbCompany);
 
   m_DDXFields.DDX(pDX);
 
@@ -134,8 +135,8 @@ BOOL CDialEdit::OnInitDialog()
   }
   UpdateData(FALSE);
 
-  m_cmbSup.Fill();
-//  m_cmbCat.Fill();
+  m_cmbCompany.Fill();
+//  m_cmbEmp.Fill();
 
   m_btnSave.SubclassDlgItem(IDC_BTN_SAVE, this);
   m_btnSave.SetBitmaps(IDB_SAVE, RGB(255, 0, 255));
@@ -178,10 +179,10 @@ void CDialEdit::OnBtnSave()
         m_pSet->AddNew();
 
         strField=_T("ID");
-//        m_pSet->Fields->GetItem(strField.Variant())->Value = m_catId.Variant();
+//        m_pSet->Fields->GetItem(strField.Variant())->Value = m_empId.Variant();
 
         //strField=_T("ID");
-        //m_pSet->Fields->GetItem(strField.Variant())->Value = m_supId.Variant();
+        //m_pSet->Fields->GetItem(strField.Variant())->Value = m_compId.Variant();
 
         break;
     }
@@ -194,28 +195,28 @@ void CDialEdit::OnBtnSave()
     {
       ;
     }
-    CExString strCatId,strSupId;
+    CExString strEmpId,strCompId;
 
 	// get next emp ID here	for new record
 	if (m_operation=CDialEdit::NEW)
 	{
-		strCatId = m_NextEmpID;
+		strEmpId = m_NextEmpID;
 	}
     else
 	{
-		strCatId=m_cmbCat.GetCurId();
+		strEmpId=m_cmbEmp.GetCurId();
 	}
-    strSupId=m_cmbSup.GetCurId();
-    CExString strCompanyName=m_cmbSup.GetCurFieldValue();
+    strCompId=m_cmbCompany.GetCurId();
+    CExString strCompanyName=m_cmbCompany.GetCurFieldValue();
 	
-    //if(strCatId!=m_catId)
+    //if(strCatId!=m_empId)
     //{
     //  m_catChange=true;
     //  strField=_T("emp_ID");
     //  m_pSet->Fields->GetItem(strField.Variant())->Value=strCatId.Variant();
     //}
 
- //   if(strSupId!=m_supId)
+ //   if(strSupId!=m_compId)
     {
       m_supChange=true;
 //	  if (m_operation == EDIT)
@@ -226,7 +227,7 @@ void CDialEdit::OnBtnSave()
 	 // {
 		//strField=_T("ID");
 	 // }
-      m_pSet->Fields->GetItem(strField.Variant())->Value = strSupId.Variant();
+      m_pSet->Fields->GetItem(strField.Variant())->Value = strCompId.Variant();
 //	  strField=_T("Company_Name");
 //	  m_pSet->Fields->GetItem(strField.Variant())->Value = strCompanyName.Variant();
     }
@@ -266,11 +267,11 @@ void CDialEdit::OnSelchangeCmbSup()
 	CExString strField;
 	CExString strCompanyName;
 	strField=_T("company_name");
-//	m_cmbSup.m_pArStrBox()
+//	m_cmbCompany.m_pArStrBox()
 	    
-//	m_DDXFields.ElementAt(5).m_value = m_cmbSup.GetCurFieldValue();
+//	m_DDXFields.ElementAt(5).m_value = m_cmbCompany.GetCurFieldValue();
 	CEdit* pCompanyName = (CEdit*)GetDlgItem(IDC_COMPANYNAME);
-	pCompanyName->SetWindowText(TEXT(m_cmbSup.GetCurFieldValue()));
+	pCompanyName->SetWindowText(TEXT(m_cmbCompany.GetCurFieldValue()));
 	// read data from recordset
 //    m_DDXFields.ReadData(m_pSet);
 	UpdateData(FALSE);

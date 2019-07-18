@@ -25,10 +25,10 @@ public:
   int m_operation;
   CExString m_NextEmpID;
 
-  CDataComboBox m_cmbCat;
-  CDataComboBox m_cmbSup;
+  CDataComboBox m_cmbEmp;
+  CDataComboBox m_cmbCompany;
 
-  CExString m_catId,m_supId;
+  CExString m_empId,m_compId;
 
   CDialEdit(CWnd* pParent = NULL);   // standard constructor
 
