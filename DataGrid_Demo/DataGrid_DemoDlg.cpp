@@ -116,6 +116,10 @@ BEGIN_MESSAGE_MAP(CDataGrid_DemoDlg, CResizableDialog)
 	ON_BN_CLICKED(IDC_BTN_PAGEUP, &CDataGrid_DemoDlg::OnBtnPageup)
 	ON_BN_CLICKED(IDC_BTN_UP, &CDataGrid_DemoDlg::OnBtnUp)
     ON_MESSAGE(NM_DBLCLK, OnGridCtrlDBClick)
+    ON_MESSAGE(GVN_SELCHANGING, OnGridCtrlSelChanging)
+
+
+	
 END_MESSAGE_MAP()
 extern void ProcessMsgs();
 
@@ -197,6 +201,11 @@ BOOL CDataGrid_DemoDlg::OnInitDialog()
   AddAnchor(IDC_BTN_DOWN, BOTTOM_CENTER);
   AddAnchor(IDC_BTN_PAGEUP, BOTTOM_CENTER);
   AddAnchor(IDC_BTN_PAGEDOWN,BOTTOM_CENTER);
+  AddAnchor(IDC_ROWNO,BOTTOM_CENTER);
+  AddAnchor(IDC_TOTROWS,BOTTOM_CENTER);
+  AddAnchor(IDC_STATICOF,BOTTOM_CENTER);
+
+  
 
   m_btnEdit.SubclassDlgItem(IDC_BTN_EDIT, this);
   m_btnEdit.SetBitmaps(IDB_EDIT, RGB(255, 0, 255));
@@ -445,18 +454,25 @@ BOOL CDataGrid_DemoDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
   if (wParam == (WPARAM)m_Grid.GetDlgCtrlID())
   {
     *pResult = 1;
-    GV_DISPINFO *pDispInfo = (GV_DISPINFO*)lParam;
+	GV_DISPINFO *pDispInfo = (GV_DISPINFO*)lParam;
+    //GV_DISPINFO *pDispInfo = (GV_DISPINFO*)lParam;
 
 	// ckl capture grid double click message
 	if (pDispInfo->hdr.code == NM_DBLCLK)
 	{
-//		CWnd *pOwner = m_Grid.GetOwner();
-//		if (pOwner && IsWindow(pOwner->m_hWnd))
-		
 		OnBtnEdit();
 		return SendMessage(NM_DBLCLK, wParam, lParam);
 	}
-    m_Grid.SetValue(pDispInfo);
+	// ckl capture grid selchange message
+	if (pDispInfo->hdr.code == GVN_SELCHANGING)
+	{
+		CString currow;
+		currow.Format(_T("%d"),pDispInfo->item.row);
+		CWnd* pWnd = GetDlgItem(IDC_ROWNO); 
+		pWnd->SetWindowText(currow); 
+//		AfxMessageBox(msg);
+	}
+    m_Grid.SetValue((GV_DISPINFO*)pDispInfo);
   }
 
   return CResizableDialog::OnNotify(wParam, lParam, pResult);
@@ -505,6 +521,11 @@ void CDataGrid_DemoDlg::Requery()
     ,-1);        // order by N of the Grid column - ckl not using grid sorting on display do it in where clause
   //
 
+  // update the recordset count
+	CString str;
+	str.Format(_T("%d"),m_Grid.m_pSet->GetRecordCount());
+	CWnd* pWnd = GetDlgItem(IDC_TOTROWS); 
+	pWnd->SetWindowText(str); 
 }
 
 #include "DialEdit.h"
@@ -721,5 +742,16 @@ void CDataGrid_DemoDlg::OnBtnUp()
 afx_msg LRESULT CDataGrid_DemoDlg::OnGridCtrlDBClick(WPARAM wParam, LPARAM lParam)
 {
 	AfxMessageBox(_T("OnGridCtrlDBClick"));
+	return 0;
+}
+
+afx_msg LRESULT CDataGrid_DemoDlg::OnGridCtrlSelChanging(WPARAM wParam, LPARAM lParam)
+{
+	GV_DISPINFO *pDispInfo = (GV_DISPINFO*)lParam;
+
+	CString currow;
+	currow.Format(_T("%d"),pDispInfo->item.row);
+	CWnd* pWnd = GetDlgItem(IDC_ROWNO); 
+	pWnd->SetWindowText(currow); 
 	return 0;
 }

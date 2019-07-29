@@ -50,6 +50,7 @@ public:
   CExString GetCurFieldValue();
   bool m_bAddPosition;
   CExString m_strAddPosition;
+  int GetCurPosition();
 protected:
   CExString m_strQuery;
   CString m_strShowField;

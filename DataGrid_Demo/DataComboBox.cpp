@@ -197,6 +197,10 @@ CExString CDataComboBox::GetCurFieldValue()
   return(m_pArStrBox->GetAt(m_nCurPosition).m_strField);
 }
 
+int CDataComboBox::GetCurPosition()
+{
+	return m_nCurPosition;
+}
 
 void CDataComboBox::SetCurPosition()
 {

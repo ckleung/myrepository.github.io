@@ -59,7 +59,7 @@ public:
   virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult);
     // inside the class declaration
 	afx_msg LRESULT OnGridCtrlDBClick(WPARAM wParam, LPARAM lParam);
-
+	afx_msg LRESULT OnGridCtrlSelChanging(WPARAM wParam, LPARAM lParam);	
   //}}AFX_VIRTUAL
 
 // Implementation

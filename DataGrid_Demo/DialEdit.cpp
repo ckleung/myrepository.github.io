@@ -208,7 +208,7 @@ void CDialEdit::OnBtnSave()
 	}
     strCompId=m_cmbCompany.GetCurId();
     CExString strCompanyName=m_cmbCompany.GetCurFieldValue();
-	
+
     //if(strCatId!=m_empId)
     //{
     //  m_catChange=true;
@@ -272,6 +272,8 @@ void CDialEdit::OnSelchangeCmbSup()
 //	m_DDXFields.ElementAt(5).m_value = m_cmbCompany.GetCurFieldValue();
 	CEdit* pCompanyName = (CEdit*)GetDlgItem(IDC_COMPANYNAME);
 	pCompanyName->SetWindowText(TEXT(m_cmbCompany.GetCurFieldValue()));
+
+
 	// read data from recordset
 //    m_DDXFields.ReadData(m_pSet);
 	UpdateData(FALSE);
